@@ -1,0 +1,35 @@
+html{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.border{
+  border-style: solid;
+
+}
+
+.header{
+  justify-content: center;
+  
+}
+
+.right{
+display: inline-block;
+width: 600px; 
+}
+
+.left{
+display: inline-block;
+width: 300px;
+}
+
+.card{
+  background-color: navy;
+  color: whitesmoke;
+  width: 100px;
+  display: inline-block ;
+}
+
+#cards{
+  display: flex;
+  /* width: 100%; */
+}
