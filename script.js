@@ -33,24 +33,30 @@ function forecast(city) {
   .then(function (data) {
     console.log(data)
     const newData = data.list;
+    const filteredForecast = data.list.filter((forecast) => forecast.dt_txt.includes("12:00:00"));
+    cardsEl.innerHTML = ""
     for (let i = 0; i < 5; i++) {
-      var fiveDay = document.createElement("div")
-      fiveDay.setAttribute("class","card" )
-      cardsEl.appendChild(fiveDay)
+      var card = document.createElement("div")
+      card.setAttribute("class","card" )
+      
+      var temp = document.createElement("p")
+      temp.innerHTML ="Temp: " +  filteredForecast[i].main.temp 
+      card.appendChild(temp)
 
-      // const time = newData[i].dt_txt.split(" ")[1]
-      
-      // if (time === "12:00:00") {
-        
-      
+      var wind = document.createElement("p")
+      wind.innerHTML = filteredForecast[i].wind.speed 
+      card.appendChild(wind)
+
+      var humidity = document.createElement("p")
+      humidity.innerHTML = filteredForecast[i].main.humidity
+      card.appendChild(humidity)
+
+      cardsEl.appendChild(card)   
+      console.log(filteredForecast[i])
       
     }
   });
 }
-
-
-
-
 
 
 submitBtn.addEventListener('click', currentWeather)
