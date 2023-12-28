@@ -8,9 +8,13 @@ html{
 }
 
 .header{
+  display: flex;
   justify-content: center;
+  background-color: darkblue;
+  color: white;
   
 }
+
 
 .right{
 display: inline-block;
