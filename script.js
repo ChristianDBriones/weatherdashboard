@@ -7,6 +7,7 @@ var tempEl = document.querySelector("#temp")
 var humidityEl = document.querySelector("#humidity")
 var cardsEl = document.getElementById("cards")
 
+
 function currentWeather() {
   var city = inputEl.value
 
@@ -15,9 +16,12 @@ function currentWeather() {
     return response.json();
   })
   .then(function (data) {
-   
-     cityEl.textContent= data.name
-     windEl.textContent= data.wind.speed
+    var dateString =  new Date(data.dt*1000).toLocaleDateString()
+     cityEl.textContent= data.name + " " + dateString;
+
+     windEl.textContent 
+      = data.wind.speed;
+
      tempEl.textContent= data.main.temp
      humidityEl.textContent= data.main.humidity
      forecast(city)
@@ -38,6 +42,8 @@ function forecast(city) {
     for (let i = 0; i < 5; i++) {
       var card = document.createElement("div")
       card.setAttribute("class","card" )
+      
+      // date goes here
       
       var temp = document.createElement("p")
       temp.innerHTML ="Temp: " +  filteredForecast[i].main.temp 
