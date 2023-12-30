@@ -19,9 +19,7 @@ function currentWeather() {
     var dateString =  new Date(data.dt*1000).toLocaleDateString()
      cityEl.textContent= data.name + " " + dateString;
 
-     windEl.textContent 
-      = data.wind.speed;
-
+     windEl.textContent = data.wind.speed;
      tempEl.textContent= data.main.temp
      humidityEl.textContent= data.main.humidity
      forecast(city)
@@ -37,14 +35,17 @@ function forecast(city) {
   .then(function (data) {
     console.log(data)
     const newData = data.list;
+    //
     const filteredForecast = data.list.filter((forecast) => forecast.dt_txt.includes("12:00:00"));
     cardsEl.innerHTML = ""
     for (let i = 0; i < 5; i++) {
       var card = document.createElement("div")
       card.setAttribute("class","card" )
       
-      // date goes here
-      
+      // date goes here var date =document.createElement("p")
+      //date.innerHTML ="Date: " +  filteredForecast[i].main.date (i think something here is wron lmaog)
+      //card.appendChild(date)
+
       var temp = document.createElement("p")
       temp.innerHTML ="Temp: " +  filteredForecast[i].main.temp 
       card.appendChild(temp)
