@@ -42,9 +42,9 @@ function forecast(city) {
       var card = document.createElement("div")
       card.setAttribute("class","card" )
       
-      // date goes here var date =document.createElement("p")
-      //date.innerHTML ="Date: " +  filteredForecast[i].main.date (i think something here is wron lmaog)
-      //card.appendChild(date)
+      var date = document.createElement("p")
+      date.innerHTML ="Date: " +  filteredForecast[i].dt.date 
+      card.appendChild(date)
 
       var temp = document.createElement("p")
       temp.innerHTML ="Temp: " +  filteredForecast[i].main.temp 
